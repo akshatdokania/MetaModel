@@ -1,0 +1,6 @@
+public class Auction(){
+	var id;
+	var seller;
+	var price;
+	var expiresAt;
+}

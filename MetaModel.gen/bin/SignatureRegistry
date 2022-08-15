@@ -1,0 +1,6 @@
+public class SignatureRegistry(){
+	var signature;
+	function registerSignature(){}
+	signatures = new Signatures();
+	signaturevalidator = new Signaturevalidator();
+}

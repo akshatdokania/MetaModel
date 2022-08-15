@@ -1,0 +1,10 @@
+public class GamePlayer_Manager(){
+	var admin;
+	var players;
+	function addPlayer(){}
+	function removePlayer(){}
+	function editPlayer(){}
+	function findPlayer(){}
+	function exist(){}
+	player = new Player();
+}

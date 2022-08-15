@@ -1,0 +1,9 @@
+public class GameMinting(){
+	var promold;
+	var count;
+	var auctionId;
+	function computeNetPrice(){}
+	function createPromo(){}
+	function createAuction(){}
+	token_manager = new Token_manager();
+}

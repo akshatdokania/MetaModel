@@ -1,0 +1,6 @@
+public class SafeMath(){
+	function safeMul(){}
+	function safeDiv(){}
+	function safeAdd(){}
+	function safeSub(){}
+}

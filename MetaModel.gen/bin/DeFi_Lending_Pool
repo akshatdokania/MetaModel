@@ -1,0 +1,5 @@
+public class DeFi_Lending_Pool(){
+	var lendingPoolAddress;
+	defi_user = new Defi_user();
+	defi_lending_core = new Defi_lending_core();
+}

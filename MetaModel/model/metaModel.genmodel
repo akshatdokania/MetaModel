@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/MetaModel/src-gen" creationIcons="false" editDirectory="/MetaModel.edit/src-gen"
+    editorDirectory="/MetaModel.editor/src-gen" modelPluginID="MetaModel" modelName="MetaModel"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>metaModel.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="MetaModel" disposableProviderFactory="true" ecorePackage="metaModel.ecore#/">
+    <genDataTypes ecoreDataType="metaModel.ecore#//AddressDType"/>
+    <genClasses ecoreClass="metaModel.ecore#//Blockchain">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//Blockchain/block"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Block">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//Block/transactions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//Block/contracts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//Block/address"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Transaction">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//Transaction/address"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//Transaction/user"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//Transaction/signaturevalidator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Transaction/to"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Transaction/from"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Transaction/hash"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Address">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//Address/transaction"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//Address/contract"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//Address/user"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Address/addr"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Contract">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//Contract/address"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//Contract/dapp"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//DApp">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//DApp/contract"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Wallet">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//Wallet/user"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//User">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//User/address"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//User/wallet"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//User/transaction"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Player">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//Player/gameplayer_manager"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Player/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Player/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Player/addr"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//GamePlayer_Manager">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//GamePlayer_Manager/player"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//GamePlayer_Manager/admin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//GamePlayer_Manager/players"/>
+      <genOperations ecoreOperation="metaModel.ecore#//GamePlayer_Manager/addPlayer"/>
+      <genOperations ecoreOperation="metaModel.ecore#//GamePlayer_Manager/removePlayer"/>
+      <genOperations ecoreOperation="metaModel.ecore#//GamePlayer_Manager/editPlayer"/>
+      <genOperations ecoreOperation="metaModel.ecore#//GamePlayer_Manager/findPlayer"/>
+      <genOperations ecoreOperation="metaModel.ecore#//GamePlayer_Manager/exist"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//GameCore">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//GameCore/gameplayer_manager"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//GameCore/gameminting"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//GameCore/newPlayerAddress"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//GameCore/active_players"/>
+      <genOperations ecoreOperation="metaModel.ecore#//GameCore/setNewAddress"/>
+      <genOperations ecoreOperation="metaModel.ecore#//GameCore/getCollectible"/>
+      <genOperations ecoreOperation="metaModel.ecore#//GameCore/withdraw"/>
+      <genOperations ecoreOperation="metaModel.ecore#//GameCore/join"/>
+      <genOperations ecoreOperation="metaModel.ecore#//GameCore/ping"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//GameMinting">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//GameMinting/promold"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//GameMinting/count"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//GameMinting/auctionId"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//GameMinting/token_manager"/>
+      <genOperations ecoreOperation="metaModel.ecore#//GameMinting/computeNetPrice"/>
+      <genOperations ecoreOperation="metaModel.ecore#//GameMinting/createPromo"/>
+      <genOperations ecoreOperation="metaModel.ecore#//GameMinting/createAuction"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//SignatureValidator">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//SignatureValidator/signatureregistry"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//SignatureValidator/ecdsa"/>
+      <genOperations ecoreOperation="metaModel.ecore#//SignatureValidator/requireValidSignature"/>
+      <genOperations ecoreOperation="metaModel.ecore#//SignatureValidator/calculateSignatureHash"/>
+      <genOperations ecoreOperation="metaModel.ecore#//SignatureValidator/validateSignature"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//SignatureRegistry">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//SignatureRegistry/signatures"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//SignatureRegistry/signaturevalidator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//SignatureRegistry/signature"/>
+      <genOperations ecoreOperation="metaModel.ecore#//SignatureRegistry/registerSignature"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Signature">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Signature/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Signature/signature"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//ECDSA">
+      <genOperations ecoreOperation="metaModel.ecore#//ECDSA/recover"/>
+      <genOperations ecoreOperation="metaModel.ecore#//ECDSA/toEthSignedMessageHash"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Token_Manager">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Token_Manager/symbol"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Token_Manager/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Token_Manager/totalSupply"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//Token_Manager/safemath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Token_Manager/balances"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Token">
+      <genOperations documentation="event&#xD;&#xA;" ecoreOperation="metaModel.ecore#//Token/Transfer"/>
+      <genOperations documentation="Event&#xD;&#xA;" ecoreOperation="metaModel.ecore#//Token/Approval"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Token/totalSupply"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Token/balanceOf"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Token/transferFrom"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Token/transferTo"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Token/approve"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Token/allowance"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//SafeMath">
+      <genOperations ecoreOperation="metaModel.ecore#//SafeMath/safeMul">
+        <genParameters ecoreParameter="metaModel.ecore#//SafeMath/safeMul/a"/>
+        <genParameters ecoreParameter="metaModel.ecore#//SafeMath/safeMul/b"/>
+      </genOperations>
+      <genOperations ecoreOperation="metaModel.ecore#//SafeMath/safeDiv">
+        <genParameters ecoreParameter="metaModel.ecore#//SafeMath/safeDiv/a"/>
+        <genParameters ecoreParameter="metaModel.ecore#//SafeMath/safeDiv/b"/>
+      </genOperations>
+      <genOperations ecoreOperation="metaModel.ecore#//SafeMath/safeAdd">
+        <genParameters ecoreParameter="metaModel.ecore#//SafeMath/safeAdd/a"/>
+        <genParameters ecoreParameter="metaModel.ecore#//SafeMath/safeAdd/b"/>
+      </genOperations>
+      <genOperations ecoreOperation="metaModel.ecore#//SafeMath/safeSub">
+        <genParameters ecoreParameter="metaModel.ecore#//SafeMath/safeSub/a"/>
+        <genParameters ecoreParameter="metaModel.ecore#//SafeMath/safeSub/b"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//OracleClient">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//OracleClient/oracleRef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//OracleClient/requestRef"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//OracleClient/buffer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//OracleClient/registry"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//OracleClient/link"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//OracleClient/oracle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//OracleClient/request"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//OracleClient/cbor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//OracleClient/pendingRequests"/>
+      <genOperations ecoreOperation="metaModel.ecore#//OracleClient/encodeRequest"/>
+      <genOperations ecoreOperation="metaModel.ecore#//OracleClient/tokenAddress"/>
+      <genOperations ecoreOperation="metaModel.ecore#//OracleClient/buildRequest"/>
+      <genOperations ecoreOperation="metaModel.ecore#//OracleClient/sendRequest"/>
+      <genOperations ecoreOperation="metaModel.ecore#//OracleClient/cancelRequest"/>
+      <genOperations ecoreOperation="metaModel.ecore#//OracleClient/setOracle"/>
+      <genOperations ecoreOperation="metaModel.ecore#//OracleClient/setToken"/>
+      <genOperations ecoreOperation="metaModel.ecore#//OracleClient/addExternalRequest"/>
+      <genOperations ecoreOperation="metaModel.ecore#//OracleClient/updateOracle"/>
+      <genOperations ecoreOperation="metaModel.ecore#//OracleClient/validateCallback"/>
+      <genOperations ecoreOperation="metaModel.ecore#//OracleClient/recordRequestFulfilled"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Oracle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Oracle/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Oracle/address"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Request">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//Request/buffer_manager"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Request/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Request/callBackAddress"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Request/buf"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Buffer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//Buffer/buffer_manager"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Buffer/buf"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Buffer/capacity"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//Buffer/token_manager"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Buffer_Manager">
+      <genOperations ecoreOperation="metaModel.ecore#//Buffer_Manager/resize"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Buffer_Manager/max"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Buffer_Manager/write"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Buffer_Manager/truncate"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Buffer_Manager/append"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//CBOR">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//CBOR/buffer_manager"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Exchange">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//Exchange/currency"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Exchange/selector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Exchange/reserves"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Exchange/blockTimeStamp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Exchange/minimumLiquiduty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Exchange/factory"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Exchange/token"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//Exchange/token_manager"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Exchange/updateConversonRates"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Exchange/mintFee"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Exchange/mint"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Exchange/burn"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Exchange/swap"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Exchange/sync"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Exchange/initialize"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Currency">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//Currency/token_manager"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Currency/getConversionRate"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Currency/convert"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Marketplace">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//Marketplace/orders"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//Marketplace/auctions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Marketplace/token"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Marketplace/publicationFee"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//Marketplace/token_manager"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Marketplace/registry"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Marketplace/createAuction"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Marketplace/cancelAuction"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Marketplace/changeOwner"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Marketplace/setPublicationFee"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Marketplace/createOrder"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Marketplace/cancelOrder"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Marketplace/executeOrder"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Marketplace/setOwnerCut"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Orders">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//Orders/items"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Orders/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Orders/status"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Orders/buyer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Orders/price"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Item">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Item/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Item/orderId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Item/quantity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Item/price"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Auction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Auction/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Auction/seller"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Auction/price"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Auction/expiresAt"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Liquidation_Manager">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//Liquidation_Manager/liquidator"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//Liquidation_Manager/token_manager"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Liquidation_Manager/mint"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Liquidation_Manager/bum"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Liquidation_Manager/updateLiquidateFee"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Liquidator">
+      <genOperations ecoreOperation="metaModel.ecore#//Liquidator/initiate"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Reserves_Manager">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//Reserves_Manager/defi_lending_core"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//Reserves_Manager/token_manager"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Reserves_Manager/activate"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Reserves_Manager/deactivate"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Reserves_Manager/freeze"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Reserves_Manager/update"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Reserves_Manager/unfreeze"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//DeFi_Lending_Core">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//DeFi_Lending_Core/data_provider"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//DeFi_Lending_Core/reserves_manager"/>
+      <genOperations ecoreOperation="metaModel.ecore#//DeFi_Lending_Core/updateState"/>
+      <genOperations ecoreOperation="metaModel.ecore#//DeFi_Lending_Core/reservesState"/>
+      <genOperations ecoreOperation="metaModel.ecore#//DeFi_Lending_Core/lendingPoolConfigurator"/>
+      <genOperations ecoreOperation="metaModel.ecore#//DeFi_Lending_Core/transferToUser"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Data_Provider">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//Data_Provider/defi_lending_core"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//Data_Provider/oracleclient"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Data_Provider/priceOracle"/>
+      <genOperations ecoreOperation="metaModel.ecore#//Data_Provider/interestRate"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//DeFi_Lending_Pool">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//DeFi_Lending_Pool/defi_user"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//DeFi_Lending_Pool/defi_lending_core"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//DeFi_Lending_Pool/lendingPoolAddress"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//DeFi_User">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//DeFi_User/defi_lending_pool"/>
+      <genOperations ecoreOperation="metaModel.ecore#//DeFi_User/loan"/>
+      <genOperations ecoreOperation="metaModel.ecore#//DeFi_User/deposit"/>
+      <genOperations ecoreOperation="metaModel.ecore#//DeFi_User/borrow"/>
+      <genOperations ecoreOperation="metaModel.ecore#//DeFi_User/repay"/>
+      <genOperations ecoreOperation="metaModel.ecore#//DeFi_User/redeem"/>
+      <genOperations ecoreOperation="metaModel.ecore#//DeFi_User/swap"/>
+      <genOperations ecoreOperation="metaModel.ecore#//DeFi_User/recieve"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

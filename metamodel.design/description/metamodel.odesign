@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="metamodel" version="12.0.0.2017041100">
+  <ownedViewpoints name="MetaModel">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="block diagram" domainClass="metaModel::Block" enablePopupBars="true">
+      <metamodel href="http://www.example.org/metaModel#/"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="Transaction" semanticCandidatesExpression="[eAllContents()/]" domainClass="metaModel::Transaction">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="aql:self.address.addr" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/metamodel.design/description/icons/transaction.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="OracleClient" semanticCandidatesExpression="[eAllContents()/]" domainClass="metaModel::OracleClient">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="aql:self.address.addr" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/metamodel.design/description/icons/OracleClient.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="DeFi_User" semanticCandidatesExpression="[eAllContents()/]" domainClass="metaModel::DeFi_User">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="aql:self.address.addr" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/metamodel.design/description/icons/DeFi_User.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Exchange" semanticCandidatesExpression="[eAllContents()/]" domainClass="metaModel::Exchange">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="aql:self.address.addr" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/metamodel.design/description/icons/Exchange.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="TokenManager" semanticCandidatesExpression="[eAllContents()/]" domainClass="metaModel::Token_Manager">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="aql:self.address.addr" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/metamodel.design/description/icons/TokenManager.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Marketplace" semanticCandidatesExpression="[eAllContents()/]" domainClass="metaModel::Marketplace">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="aql:self.address.addr" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/metamodel.design/description/icons/Marketplace.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Player" semanticCandidatesExpression="[eAllContents()/]" domainClass="metaModel::Player">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="aql:self.address.addr" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/metamodel.design/description/icons/Player.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Address" semanticCandidatesExpression="[eAllContents()/]" domainClass="metaModel::Address">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="aql:self.addr" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/metamodel.design/description/icons/Address.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="addressEdge" sourceMapping="//@ownedViewpoints[name='MetaModel']/@ownedRepresentations[name='block%20diagram']/@defaultLayer/@nodeMappings[name='DeFi_User'] //@ownedViewpoints[name='MetaModel']/@ownedRepresentations[name='block%20diagram']/@defaultLayer/@nodeMappings[name='Exchange'] //@ownedViewpoints[name='MetaModel']/@ownedRepresentations[name='block%20diagram']/@defaultLayer/@nodeMappings[name='Marketplace'] //@ownedViewpoints[name='MetaModel']/@ownedRepresentations[name='block%20diagram']/@defaultLayer/@nodeMappings[name='OracleClient'] //@ownedViewpoints[name='MetaModel']/@ownedRepresentations[name='block%20diagram']/@defaultLayer/@nodeMappings[name='Player'] //@ownedViewpoints[name='MetaModel']/@ownedRepresentations[name='block%20diagram']/@defaultLayer/@nodeMappings[name='TokenManager'] //@ownedViewpoints[name='MetaModel']/@ownedRepresentations[name='block%20diagram']/@defaultLayer/@nodeMappings[name='Transaction']" targetMapping="//@ownedViewpoints[name='MetaModel']/@ownedRepresentations[name='block%20diagram']/@defaultLayer/@nodeMappings[name='Address']" targetFinderExpression="feature:address">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <toolSections name="New">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Transaction" nodeMappings="//@ownedViewpoints[name='MetaModel']/@ownedRepresentations[name='block%20diagram']/@defaultLayer/@nodeMappings[name='Transaction']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metaModel::Transaction" referenceName="transactions"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Address" nodeMappings="//@ownedViewpoints[name='MetaModel']/@ownedRepresentations[name='block%20diagram']/@defaultLayer/@nodeMappings[name='Address']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metaModel::Address" referenceName="address"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="OracleClient" nodeMappings="//@ownedViewpoints[name='MetaModel']/@ownedRepresentations[name='block%20diagram']/@defaultLayer/@nodeMappings[name='OracleClient']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metaModel::OracleClient" referenceName="contracts"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="DeFi_User" nodeMappings="//@ownedViewpoints[name='MetaModel']/@ownedRepresentations[name='block%20diagram']/@defaultLayer/@nodeMappings[name='DeFi_User']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metaModel::DeFi_User" referenceName="contracts"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Exchange" nodeMappings="//@ownedViewpoints[name='MetaModel']/@ownedRepresentations[name='block%20diagram']/@defaultLayer/@nodeMappings[name='Exchange']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metaModel::Exchange" referenceName="contracts"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="TokenManager" nodeMappings="//@ownedViewpoints[name='MetaModel']/@ownedRepresentations[name='block%20diagram']/@defaultLayer/@nodeMappings[name='TokenManager']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metaModel::Token_Manager" referenceName="contracts"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Marketplace" nodeMappings="//@ownedViewpoints[name='MetaModel']/@ownedRepresentations[name='block%20diagram']/@defaultLayer/@nodeMappings[name='Marketplace']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metaModel::Marketplace" referenceName="contracts"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Player" nodeMappings="//@ownedViewpoints[name='MetaModel']/@ownedRepresentations[name='block%20diagram']/@defaultLayer/@nodeMappings[name='Player']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metaModel::Player" referenceName="contracts"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="metamodel.design.Services"/>
+  </ownedViewpoints>
+  <ownedViewpoints name="OracleClient">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="oracleClient" domainClass="metaModel::OracleClient" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="Oracle" semanticCandidatesExpression="[eAllContents()/]" domainClass="metaModel::Oracle">
+          <style xsi:type="style:BundledImageDescription" labelSize="12" labelExpression="Oracle" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Request" semanticCandidatesExpression="[eAllContents()/]" domainClass="metaModel::Request">
+          <style xsi:type="style:BundledImageDescription" labelSize="12" labelExpression="Request" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+        </nodeMappings>
+        <toolSections name="Creation">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Oracle" nodeMappings="//@ownedViewpoints[name='OracleClient']/@ownedRepresentations[name='oracleClient']/@defaultLayer/@nodeMappings[name='Oracle']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metaModel::Oracle" referenceName="oracleRef"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Request" nodeMappings="//@ownedViewpoints[name='OracleClient']/@ownedRepresentations[name='oracleClient']/@defaultLayer/@nodeMappings[name='Request']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metaModel::Request" referenceName="requestRef"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+  <ownedViewpoints name="Marketplace">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="marketplace" domainClass="metaModel::Marketplace" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="Auction" semanticCandidatesExpression="[eAllContents()/]" domainClass="metaModel::Auction">
+          <style xsi:type="style:BundledImageDescription" labelSize="12" labelExpression="Auction" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Orders" semanticCandidatesExpression="[eAllContents()/]" domainClass="metaModel::Orders">
+          <style xsi:type="style:BundledImageDescription" labelSize="12" labelExpression="Order" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </nodeMappings>
+        <toolSections name="Creation">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Auction" nodeMappings="//@ownedViewpoints[name='Marketplace']/@ownedRepresentations[name='marketplace']/@defaultLayer/@nodeMappings[name='Auction']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metaModel::Auction" referenceName="auctions"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Orders" nodeMappings="//@ownedViewpoints[name='Marketplace']/@ownedRepresentations[name='marketplace']/@defaultLayer/@nodeMappings[name='Orders']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metaModel::Orders" referenceName="orders"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+  <ownedViewpoints name="Exchange">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="exchange" domainClass="metaModel::Exchange" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="Currency" domainClass="metaModel::Currency">
+          <style xsi:type="style:BundledImageDescription" labelSize="12" labelExpression="Currency" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+          </style>
+        </nodeMappings>
+        <toolSections name="Creation">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Currency" nodeMappings="//@ownedViewpoints[name='Exchange']/@ownedRepresentations[name='exchange']/@defaultLayer/@nodeMappings[name='Currency']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metaModel::Currency" referenceName="currency"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>

@@ -1,0 +1,6 @@
+public class Item(){
+	var id;
+	var orderId;
+	var quantity;
+	var price;
+}

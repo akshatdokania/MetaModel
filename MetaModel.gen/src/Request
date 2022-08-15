@@ -1,0 +1,6 @@
+public class Request(){
+	var id;
+	var callBackAddress;
+	var buf;
+	buffer_manager = new Buffer_manager();
+}

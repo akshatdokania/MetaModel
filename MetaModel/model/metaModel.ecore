@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="metaModel" nsURI="http://www.example.org/metaModel" nsPrefix="metaModel">
+  <eClassifiers xsi:type="ecore:EClass" name="Blockchain">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" upperBound="-1"
+        eType="#//Block" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Block">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transactions" upperBound="-1"
+        eType="#//Transaction" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contracts" upperBound="-1"
+        eType="#//Contract" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="address" upperBound="-1"
+        eType="#//Address" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Transaction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="address" eType="#//Address"
+        eOpposite="#//Address/transaction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="user" eType="#//User" eOpposite="#//User/transaction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="signaturevalidator" eType="#//SignatureValidator"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="to" eType="#//AddressDType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="from" eType="#//AddressDType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hash" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Address">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transaction" eType="#//Transaction"
+        eOpposite="#//Transaction/address"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contract" eType="#//Contract"
+        eOpposite="#//Contract/address"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="user" eType="#//User" eOpposite="#//User/address"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="addr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Contract" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="address" eType="#//Address"
+        eOpposite="#//Address/contract"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dapp" eType="#//DApp" eOpposite="#//DApp/contract"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DApp">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contract" eType="#//Contract"
+        eOpposite="#//Contract/dapp"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Wallet">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="user" eType="#//User" eOpposite="#//User/wallet"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="User">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="address" eType="#//Address"
+        eOpposite="#//Address/user"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wallet" eType="#//Wallet"
+        eOpposite="#//Wallet/user"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transaction" eType="#//Transaction"
+        eOpposite="#//Transaction/user"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Player" eSuperTypes="#//Contract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gameplayer_manager" eType="#//GamePlayer_Manager"
+        eOpposite="#//GamePlayer_Manager/player"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="addr" eType="#//AddressDType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GamePlayer_Manager">
+    <eOperations name="addPlayer"/>
+    <eOperations name="removePlayer"/>
+    <eOperations name="editPlayer"/>
+    <eOperations name="findPlayer"/>
+    <eOperations name="exist"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="player" eType="#//Player"
+        eOpposite="#//Player/gameplayer_manager"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="admin" eType="#//AddressDType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="players" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GameCore">
+    <eOperations name="setNewAddress"/>
+    <eOperations name="getCollectible"/>
+    <eOperations name="withdraw"/>
+    <eOperations name="join"/>
+    <eOperations name="ping"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gameplayer_manager" eType="#//GamePlayer_Manager"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gameminting" eType="#//GameMinting"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="newPlayerAddress" eType="#//AddressDType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="active_players" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GameMinting">
+    <eOperations name="computeNetPrice"/>
+    <eOperations name="createPromo"/>
+    <eOperations name="createAuction"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="promold" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="auctionId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="token_manager" eType="#//Token_Manager"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SignatureValidator">
+    <eOperations name="requireValidSignature"/>
+    <eOperations name="calculateSignatureHash"/>
+    <eOperations name="validateSignature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="signatureregistry" eType="#//SignatureRegistry"
+        eOpposite="#//SignatureRegistry/signaturevalidator"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ecdsa" eType="#//ECDSA"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SignatureRegistry">
+    <eOperations name="registerSignature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="signatures" upperBound="-1"
+        eType="#//Signature" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="signaturevalidator" eType="#//SignatureValidator"
+        eOpposite="#//SignatureValidator/signatureregistry"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="signature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Signature">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="signature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ECDSA">
+    <eOperations name="recover"/>
+    <eOperations name="toEthSignedMessageHash"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Token_Manager" eSuperTypes="#//Token #//Contract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="symbol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalSupply" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="safemath" eType="#//SafeMath"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="balances" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Token">
+    <eOperations name="Transfer"/>
+    <eOperations name="Approval"/>
+    <eOperations name="totalSupply"/>
+    <eOperations name="balanceOf"/>
+    <eOperations name="transferFrom"/>
+    <eOperations name="transferTo"/>
+    <eOperations name="approve"/>
+    <eOperations name="allowance"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SafeMath">
+    <eOperations name="safeMul" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eParameters name="a" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="b" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="safeDiv" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eParameters name="a" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="b" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="safeAdd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eParameters name="a" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="b" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="safeSub" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eParameters name="a" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="b" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OracleClient" eSuperTypes="#//Contract">
+    <eOperations name="encodeRequest"/>
+    <eOperations name="tokenAddress"/>
+    <eOperations name="buildRequest"/>
+    <eOperations name="sendRequest"/>
+    <eOperations name="cancelRequest"/>
+    <eOperations name="setOracle"/>
+    <eOperations name="setToken"/>
+    <eOperations name="addExternalRequest"/>
+    <eOperations name="updateOracle"/>
+    <eOperations name="validateCallback"/>
+    <eOperations name="recordRequestFulfilled"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="oracleRef" upperBound="-1"
+        eType="#//Oracle" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requestRef" upperBound="-1"
+        eType="#//Request" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buffer" eType="#//Buffer"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="registry" eType="#//AddressDType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="link" eType="#//AddressDType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="oracle" eType="#//AddressDType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="request" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cbor" eType="#//CBOR"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pendingRequests" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Oracle">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" eType="#//AddressDType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Request">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buffer_manager" eType="#//Buffer_Manager"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="callBackAddress" eType="#//AddressDType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="buf" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Buffer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buffer_manager" upperBound="-1"
+        eType="#//Buffer_Manager" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="buf" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="capacity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="token_manager" eType="#//Token_Manager"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Buffer_Manager">
+    <eOperations name="resize"/>
+    <eOperations name="max"/>
+    <eOperations name="write"/>
+    <eOperations name="truncate"/>
+    <eOperations name="append"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CBOR">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buffer_manager" eType="#//Buffer_Manager"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Exchange" eSuperTypes="#//Contract">
+    <eOperations name="updateConversonRates"/>
+    <eOperations name="mintFee"/>
+    <eOperations name="mint"/>
+    <eOperations name="burn"/>
+    <eOperations name="swap"/>
+    <eOperations name="sync"/>
+    <eOperations name="initialize"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="currency" upperBound="-1"
+        eType="#//Currency" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selector" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reserves" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="blockTimeStamp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimumLiquiduty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="factory" eType="#//AddressDType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="token" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="token_manager" eType="#//Token_Manager"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Currency">
+    <eOperations name="getConversionRate"/>
+    <eOperations name="convert"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="token_manager" eType="#//Token_Manager"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Marketplace" eSuperTypes="#//Contract">
+    <eOperations name="createAuction"/>
+    <eOperations name="cancelAuction"/>
+    <eOperations name="changeOwner"/>
+    <eOperations name="setPublicationFee"/>
+    <eOperations name="createOrder"/>
+    <eOperations name="cancelOrder"/>
+    <eOperations name="executeOrder"/>
+    <eOperations name="setOwnerCut"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="orders" upperBound="-1"
+        eType="#//Orders" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="auctions" upperBound="-1"
+        eType="#//Auction" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="token" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="publicationFee" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="token_manager" eType="#//Token_Manager"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="registry" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Orders">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//Item" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="buyer" eType="#//AddressDType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Item">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="orderId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Auction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="seller" eType="#//AddressDType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expiresAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Liquidation_Manager">
+    <eOperations name="mint"/>
+    <eOperations name="bum"/>
+    <eOperations name="updateLiquidateFee"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="liquidator" upperBound="-1"
+        eType="#//Liquidator" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="token_manager" eType="#//Token_Manager"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Liquidator">
+    <eOperations name="initiate"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Reserves_Manager">
+    <eOperations name="activate"/>
+    <eOperations name="deactivate"/>
+    <eOperations name="freeze"/>
+    <eOperations name="update"/>
+    <eOperations name="unfreeze"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defi_lending_core" eType="#//DeFi_Lending_Core"
+        eOpposite="#//DeFi_Lending_Core/reserves_manager"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="token_manager" eType="#//Token_Manager"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeFi_Lending_Core">
+    <eOperations name="updateState"/>
+    <eOperations name="reservesState"/>
+    <eOperations name="lendingPoolConfigurator"/>
+    <eOperations name="transferToUser"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="data_provider" eType="#//Data_Provider"
+        eOpposite="#//Data_Provider/defi_lending_core"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reserves_manager" eType="#//Reserves_Manager"
+        eOpposite="#//Reserves_Manager/defi_lending_core"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Data_Provider" eSuperTypes="#//OracleClient">
+    <eOperations name="priceOracle"/>
+    <eOperations name="interestRate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defi_lending_core" eType="#//DeFi_Lending_Core"
+        eOpposite="#//DeFi_Lending_Core/data_provider"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="oracleclient" eType="#//OracleClient"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeFi_Lending_Pool">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defi_user" upperBound="-1"
+        eType="#//DeFi_User" eOpposite="#//DeFi_User/defi_lending_pool"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defi_lending_core" upperBound="-1"
+        eType="#//DeFi_Lending_Core" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lendingPoolAddress" eType="#//AddressDType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeFi_User" eSuperTypes="#//Contract">
+    <eOperations name="loan"/>
+    <eOperations name="deposit"/>
+    <eOperations name="borrow"/>
+    <eOperations name="repay"/>
+    <eOperations name="redeem"/>
+    <eOperations name="swap"/>
+    <eOperations name="recieve"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defi_lending_pool" upperBound="-1"
+        eType="#//DeFi_Lending_Pool" eOpposite="#//DeFi_Lending_Pool/defi_user"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="AddressDType" instanceClassName="java.lang.String"/>
+</ecore:EPackage>

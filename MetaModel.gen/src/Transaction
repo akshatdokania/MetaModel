@@ -1,0 +1,8 @@
+public class Transaction(){
+	var to;
+	var from;
+	var hash;
+	address = new Address();
+	user = new User();
+	signaturevalidator = new Signaturevalidator();
+}

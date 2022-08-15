@@ -1,0 +1,6 @@
+public class Buffer(){
+	var buf;
+	var capacity;
+	buffer_manager = new Buffer_manager();
+	token_manager = new Token_manager();
+}

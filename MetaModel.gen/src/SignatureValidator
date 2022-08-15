@@ -1,0 +1,7 @@
+public class SignatureValidator(){
+	function requireValidSignature(){}
+	function calculateSignatureHash(){}
+	function validateSignature(){}
+	signatureregistry = new Signatureregistry();
+	ecdsa = new Ecdsa();
+}

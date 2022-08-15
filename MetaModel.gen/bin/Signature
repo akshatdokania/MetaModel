@@ -1,0 +1,4 @@
+public class Signature(){
+	var id;
+	var signature;
+}

@@ -1,0 +1,6 @@
+public class Data_Provider(){
+	function priceOracle(){}
+	function interestRate(){}
+	defi_lending_core = new Defi_lending_core();
+	oracleclient = new Oracleclient();
+}

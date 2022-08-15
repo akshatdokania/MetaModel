@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:metaModel="http://www.example.org/metaModel" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="metaModel" ecore:package="metaModel" targetNamespace="http://www.example.org/metaModel">
+  <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.xsd"/>
+  <xsd:element ecore:ignore="true" name="Blockchain" type="metaModel:Blockchain"/>
+  <xsd:element ecore:ignore="true" name="Block" type="metaModel:Block"/>
+  <xsd:element ecore:ignore="true" name="Transaction" type="metaModel:Transaction"/>
+  <xsd:element ecore:ignore="true" name="Address" type="metaModel:Address"/>
+  <xsd:element ecore:ignore="true" name="Contract" type="metaModel:Contract"/>
+  <xsd:element ecore:ignore="true" name="DApp" type="metaModel:DApp"/>
+  <xsd:element ecore:ignore="true" name="Wallet" type="metaModel:Wallet"/>
+  <xsd:element ecore:ignore="true" name="User" type="metaModel:User"/>
+  <xsd:element ecore:ignore="true" name="Player" type="metaModel:Player"/>
+  <xsd:element ecore:ignore="true" name="GamePlayer_Manager" type="metaModel:GamePlayer_Manager"/>
+  <xsd:element ecore:ignore="true" name="GameCore" type="metaModel:GameCore"/>
+  <xsd:element ecore:ignore="true" name="GameMinting" type="metaModel:GameMinting"/>
+  <xsd:element ecore:ignore="true" name="SignatureValidator" type="metaModel:SignatureValidator"/>
+  <xsd:element ecore:ignore="true" name="SignatureRegistry" type="metaModel:SignatureRegistry"/>
+  <xsd:element ecore:ignore="true" name="Signature" type="metaModel:Signature"/>
+  <xsd:element ecore:ignore="true" name="ECDSA" type="metaModel:ECDSA"/>
+  <xsd:element ecore:ignore="true" name="Token_Manager" type="metaModel:Token_Manager"/>
+  <xsd:element ecore:ignore="true" name="Token" type="metaModel:Token"/>
+  <xsd:element ecore:ignore="true" name="SafeMath" type="metaModel:SafeMath"/>
+  <xsd:element ecore:ignore="true" name="OracleClient" type="metaModel:OracleClient"/>
+  <xsd:element ecore:ignore="true" name="Oracle" type="metaModel:Oracle"/>
+  <xsd:element ecore:ignore="true" name="Request" type="metaModel:Request"/>
+  <xsd:element ecore:ignore="true" name="Buffer" type="metaModel:Buffer"/>
+  <xsd:element ecore:ignore="true" name="Buffer_Manager" type="metaModel:Buffer_Manager"/>
+  <xsd:element ecore:ignore="true" name="CBOR" type="metaModel:CBOR"/>
+  <xsd:element ecore:ignore="true" name="Exchange" type="metaModel:Exchange"/>
+  <xsd:element ecore:ignore="true" name="Currency" type="metaModel:Currency"/>
+  <xsd:element ecore:ignore="true" name="Marketplace" type="metaModel:Marketplace"/>
+  <xsd:element ecore:ignore="true" name="Orders" type="metaModel:Orders"/>
+  <xsd:element ecore:ignore="true" name="Item" type="metaModel:Item"/>
+  <xsd:element ecore:ignore="true" name="Auction" type="metaModel:Auction"/>
+  <xsd:element ecore:ignore="true" name="Liquidation_Manager" type="metaModel:Liquidation_Manager"/>
+  <xsd:element ecore:ignore="true" name="Liquidator" type="metaModel:Liquidator"/>
+  <xsd:element ecore:ignore="true" name="Reserves_Manager" type="metaModel:Reserves_Manager"/>
+  <xsd:element ecore:ignore="true" name="DeFi_Lending_Core" type="metaModel:DeFi_Lending_Core"/>
+  <xsd:element ecore:ignore="true" name="Data_Provider" type="metaModel:Data_Provider"/>
+  <xsd:element ecore:ignore="true" name="DeFi_Lending_Pool" type="metaModel:DeFi_Lending_Pool"/>
+  <xsd:element ecore:ignore="true" name="DeFi_User" type="metaModel:DeFi_User"/>
+  <xsd:complexType name="Blockchain">
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="block" type="metaModel:Block"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Block">
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="transactions" type="metaModel:Transaction"/>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="contracts" type="metaModel:Contract"/>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="address" type="metaModel:Address"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Transaction">
+    <xsd:attribute ecore:opposite="transaction" ecore:reference="metaModel:Address" name="address" type="xsd:anyURI"/>
+    <xsd:attribute ecore:opposite="transaction" ecore:reference="metaModel:User" name="user" type="xsd:anyURI"/>
+    <xsd:attribute ecore:reference="metaModel:SignatureValidator" name="signaturevalidator" type="xsd:anyURI"/>
+    <xsd:attribute name="to" type="metaModel:AddressDType"/>
+    <xsd:attribute name="from" type="metaModel:AddressDType"/>
+    <xsd:attribute name="hash" type="ecore:EString"/>
+  </xsd:complexType>
+  <xsd:complexType name="Address">
+    <xsd:attribute ecore:opposite="address" ecore:reference="metaModel:Transaction" name="transaction" type="xsd:anyURI"/>
+    <xsd:attribute ecore:opposite="address" ecore:reference="metaModel:Contract" name="contract" type="xsd:anyURI"/>
+    <xsd:attribute ecore:opposite="address" ecore:reference="metaModel:User" name="user" type="xsd:anyURI"/>
+    <xsd:attribute name="addr" type="ecore:EString"/>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="Contract">
+    <xsd:attribute ecore:opposite="contract" ecore:reference="metaModel:Address" name="address" type="xsd:anyURI"/>
+    <xsd:attribute ecore:opposite="contract" ecore:reference="metaModel:DApp" name="dapp" type="xsd:anyURI"/>
+  </xsd:complexType>
+  <xsd:complexType name="DApp">
+    <xsd:attribute ecore:opposite="dapp" ecore:reference="metaModel:Contract" name="contract" type="xsd:anyURI"/>
+  </xsd:complexType>
+  <xsd:complexType name="Wallet">
+    <xsd:attribute ecore:opposite="wallet" ecore:reference="metaModel:User" name="user" type="xsd:anyURI"/>
+  </xsd:complexType>
+  <xsd:complexType name="User">
+    <xsd:attribute ecore:opposite="user" ecore:reference="metaModel:Address" name="address" type="xsd:anyURI"/>
+    <xsd:attribute ecore:opposite="user" ecore:reference="metaModel:Wallet" name="wallet" type="xsd:anyURI"/>
+    <xsd:attribute ecore:opposite="user" ecore:reference="metaModel:Transaction" name="transaction" type="xsd:anyURI"/>
+  </xsd:complexType>
+  <xsd:complexType name="Player">
+    <xsd:complexContent>
+      <xsd:extension base="metaModel:Contract">
+        <xsd:attribute ecore:name="gameplayer_manager" ecore:opposite="player" ecore:reference="metaModel:GamePlayer_Manager" name="gameplayer_manager" type="xsd:anyURI"/>
+        <xsd:attribute ecore:unsettable="false" name="id" type="ecore:EInt"/>
+        <xsd:attribute name="name" type="ecore:EString"/>
+        <xsd:attribute name="addr" type="metaModel:AddressDType"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="GamePlayer_Manager" name="GamePlayer_Manager">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="addPlayer"/>
+        <operation name="removePlayer"/>
+        <operation name="editPlayer"/>
+        <operation name="findPlayer"/>
+        <operation name="exist"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:attribute ecore:opposite="gameplayer_manager" ecore:reference="metaModel:Player" name="player" type="xsd:anyURI"/>
+    <xsd:attribute name="admin" type="metaModel:AddressDType"/>
+    <xsd:attribute name="players" type="ecore:EJavaObject"/>
+  </xsd:complexType>
+  <xsd:complexType name="GameCore">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="setNewAddress"/>
+        <operation name="getCollectible"/>
+        <operation name="withdraw"/>
+        <operation name="join"/>
+        <operation name="ping"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:attribute ecore:name="gameplayer_manager" ecore:reference="metaModel:GamePlayer_Manager" name="gameplayer_manager" type="xsd:anyURI"/>
+    <xsd:attribute ecore:reference="metaModel:GameMinting" name="gameminting" type="xsd:anyURI"/>
+    <xsd:attribute name="newPlayerAddress" type="metaModel:AddressDType"/>
+    <xsd:attribute ecore:name="active_players" name="active_players" type="ecore:EJavaObject"/>
+  </xsd:complexType>
+  <xsd:complexType name="GameMinting">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="computeNetPrice"/>
+        <operation name="createPromo"/>
+        <operation name="createAuction"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:attribute ecore:unsettable="false" name="promold" type="ecore:EInt"/>
+    <xsd:attribute ecore:unsettable="false" name="count" type="ecore:EInt"/>
+    <xsd:attribute ecore:unsettable="false" name="auctionId" type="ecore:EInt"/>
+    <xsd:attribute ecore:name="token_manager" ecore:reference="metaModel:Token_Manager" name="token_manager" type="xsd:anyURI"/>
+  </xsd:complexType>
+  <xsd:complexType name="SignatureValidator">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="requireValidSignature"/>
+        <operation name="calculateSignatureHash"/>
+        <operation name="validateSignature"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:attribute ecore:opposite="signaturevalidator" ecore:reference="metaModel:SignatureRegistry" name="signatureregistry" type="xsd:anyURI"/>
+    <xsd:attribute ecore:reference="metaModel:ECDSA" name="ecdsa" type="xsd:anyURI"/>
+  </xsd:complexType>
+  <xsd:complexType name="SignatureRegistry">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="registerSignature"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="signatures" type="metaModel:Signature"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:opposite="signatureregistry" ecore:reference="metaModel:SignatureValidator" name="signaturevalidator" type="xsd:anyURI"/>
+    <xsd:attribute name="signature" type="ecore:EJavaObject"/>
+  </xsd:complexType>
+  <xsd:complexType name="Signature">
+    <xsd:attribute name="id" type="ecore:EByteArray"/>
+    <xsd:attribute name="signature" type="ecore:EByteArray"/>
+  </xsd:complexType>
+  <xsd:complexType name="ECDSA">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="recover"/>
+        <operation name="toEthSignedMessageHash"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="metaModel:Contract" ecore:name="Token_Manager" name="Token_Manager">
+    <xsd:complexContent>
+      <xsd:extension base="metaModel:Token">
+        <xsd:attribute name="symbol" type="ecore:EString"/>
+        <xsd:attribute name="name" type="ecore:EString"/>
+        <xsd:attribute ecore:unsettable="false" name="totalSupply" type="ecore:EInt"/>
+        <xsd:attribute ecore:reference="metaModel:SafeMath" name="safemath" type="xsd:anyURI"/>
+        <xsd:attribute name="balances" type="ecore:EJavaObject"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Token">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="Transfer"/>
+        <operation name="Approval"/>
+        <operation name="totalSupply"/>
+        <operation name="balanceOf"/>
+        <operation name="transferFrom"/>
+        <operation name="transferTo"/>
+        <operation name="approve"/>
+        <operation name="allowance"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:complexType>
+  <xsd:complexType name="SafeMath">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="safeMul" type="ecore:EInt">
+          <parameter name="a" type="ecore:EInt"/>
+          <parameter name="b" type="ecore:EInt"/>
+        </operation>
+        <operation name="safeDiv" type="ecore:EInt">
+          <parameter name="a" type="ecore:EInt"/>
+          <parameter name="b" type="ecore:EInt"/>
+        </operation>
+        <operation name="safeAdd" type="ecore:EInt">
+          <parameter name="a" type="ecore:EInt"/>
+          <parameter name="b" type="ecore:EInt"/>
+        </operation>
+        <operation name="safeSub" type="ecore:EInt">
+          <parameter name="a" type="ecore:EInt"/>
+          <parameter name="b" type="ecore:EInt"/>
+        </operation>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:complexType>
+  <xsd:complexType name="OracleClient">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="encodeRequest"/>
+        <operation name="tokenAddress"/>
+        <operation name="buildRequest"/>
+        <operation name="sendRequest"/>
+        <operation name="cancelRequest"/>
+        <operation name="setOracle"/>
+        <operation name="setToken"/>
+        <operation name="addExternalRequest"/>
+        <operation name="updateOracle"/>
+        <operation name="validateCallback"/>
+        <operation name="recordRequestFulfilled"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="metaModel:Contract">
+        <xsd:sequence>
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="oracleRef" type="metaModel:Oracle"/>
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="requestRef" type="metaModel:Request"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:reference="metaModel:Buffer" name="buffer" type="xsd:anyURI"/>
+        <xsd:attribute name="registry" type="metaModel:AddressDType"/>
+        <xsd:attribute name="link" type="metaModel:AddressDType"/>
+        <xsd:attribute name="oracle" type="metaModel:AddressDType"/>
+        <xsd:attribute ecore:unsettable="false" name="request" type="ecore:EInt"/>
+        <xsd:attribute ecore:reference="metaModel:CBOR" name="cbor" type="xsd:anyURI"/>
+        <xsd:attribute name="pendingRequests" type="ecore:EJavaObject"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Oracle">
+    <xsd:attribute ecore:unsettable="false" name="id" type="ecore:EInt"/>
+    <xsd:attribute name="address" type="metaModel:AddressDType"/>
+  </xsd:complexType>
+  <xsd:complexType name="Request">
+    <xsd:attribute ecore:name="buffer_manager" ecore:reference="metaModel:Buffer_Manager" name="buffer_manager" type="xsd:anyURI"/>
+    <xsd:attribute ecore:unsettable="false" name="id" type="ecore:EByte"/>
+    <xsd:attribute name="callBackAddress" type="metaModel:AddressDType"/>
+    <xsd:attribute name="buf" type="ecore:EJavaObject"/>
+  </xsd:complexType>
+  <xsd:complexType name="Buffer">
+    <xsd:sequence>
+      <xsd:element ecore:name="buffer_manager" ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="buffer_manager" type="metaModel:Buffer_Manager"/>
+    </xsd:sequence>
+    <xsd:attribute name="buf" type="ecore:EByteArray"/>
+    <xsd:attribute ecore:unsettable="false" name="capacity" type="ecore:EInt"/>
+    <xsd:attribute ecore:name="token_manager" ecore:reference="metaModel:Token_Manager" name="token_manager" type="xsd:anyURI"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Buffer_Manager" name="Buffer_Manager">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="resize"/>
+        <operation name="max"/>
+        <operation name="write"/>
+        <operation name="truncate"/>
+        <operation name="append"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:complexType>
+  <xsd:complexType name="CBOR">
+    <xsd:attribute ecore:name="buffer_manager" ecore:reference="metaModel:Buffer_Manager" name="buffer_manager" type="xsd:anyURI"/>
+  </xsd:complexType>
+  <xsd:complexType name="Exchange">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="updateConversonRates"/>
+        <operation name="mintFee"/>
+        <operation name="mint"/>
+        <operation name="burn"/>
+        <operation name="swap"/>
+        <operation name="sync"/>
+        <operation name="initialize"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="metaModel:Contract">
+        <xsd:sequence>
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="currency" type="metaModel:Currency"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:unsettable="false" name="selector" type="ecore:EByte"/>
+        <xsd:attribute ecore:unsettable="false" name="reserves" type="ecore:EInt"/>
+        <xsd:attribute ecore:unsettable="false" name="blockTimeStamp" type="ecore:EInt"/>
+        <xsd:attribute ecore:unsettable="false" name="minimumLiquiduty" type="ecore:EInt"/>
+        <xsd:attribute name="factory" type="metaModel:AddressDType"/>
+        <xsd:attribute name="token" type="ecore:EJavaObject"/>
+        <xsd:attribute ecore:name="token_manager" ecore:reference="metaModel:Token_Manager" name="token_manager" type="xsd:anyURI"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Currency">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="getConversionRate"/>
+        <operation name="convert"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:attribute ecore:name="token_manager" ecore:reference="metaModel:Token_Manager" name="token_manager" type="xsd:anyURI"/>
+  </xsd:complexType>
+  <xsd:complexType name="Marketplace">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="createAuction"/>
+        <operation name="cancelAuction"/>
+        <operation name="changeOwner"/>
+        <operation name="setPublicationFee"/>
+        <operation name="createOrder"/>
+        <operation name="cancelOrder"/>
+        <operation name="executeOrder"/>
+        <operation name="setOwnerCut"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="metaModel:Contract">
+        <xsd:sequence>
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="orders" type="metaModel:Orders"/>
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="auctions" type="metaModel:Auction"/>
+        </xsd:sequence>
+        <xsd:attribute name="token" type="ecore:EJavaObject"/>
+        <xsd:attribute ecore:unsettable="false" name="publicationFee" type="ecore:EInt"/>
+        <xsd:attribute ecore:name="token_manager" ecore:reference="metaModel:Token_Manager" name="token_manager" type="xsd:anyURI"/>
+        <xsd:attribute name="registry" type="ecore:EJavaObject"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Orders">
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="items" type="metaModel:Item"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:unsettable="false" name="id" type="ecore:EInt"/>
+    <xsd:attribute name="status" type="ecore:EString"/>
+    <xsd:attribute name="buyer" type="metaModel:AddressDType"/>
+    <xsd:attribute ecore:unsettable="false" name="price" type="ecore:EInt"/>
+  </xsd:complexType>
+  <xsd:complexType name="Item">
+    <xsd:attribute ecore:unsettable="false" name="id" type="ecore:EInt"/>
+    <xsd:attribute ecore:unsettable="false" name="orderId" type="ecore:EInt"/>
+    <xsd:attribute ecore:unsettable="false" name="quantity" type="ecore:EInt"/>
+    <xsd:attribute ecore:unsettable="false" name="price" type="ecore:EInt"/>
+  </xsd:complexType>
+  <xsd:complexType name="Auction">
+    <xsd:attribute ecore:unsettable="false" name="id" type="ecore:EInt"/>
+    <xsd:attribute name="seller" type="metaModel:AddressDType"/>
+    <xsd:attribute ecore:unsettable="false" name="price" type="ecore:EInt"/>
+    <xsd:attribute ecore:unsettable="false" name="expiresAt" type="ecore:EInt"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Liquidation_Manager" name="Liquidation_Manager">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="mint"/>
+        <operation name="bum"/>
+        <operation name="updateLiquidateFee"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="liquidator" type="metaModel:Liquidator"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="token_manager" ecore:reference="metaModel:Token_Manager" name="token_manager" type="xsd:anyURI"/>
+  </xsd:complexType>
+  <xsd:complexType name="Liquidator">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="initiate"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Reserves_Manager" name="Reserves_Manager">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="activate"/>
+        <operation name="deactivate"/>
+        <operation name="freeze"/>
+        <operation name="update"/>
+        <operation name="unfreeze"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:attribute ecore:name="defi_lending_core" ecore:opposite="reserves_manager" ecore:reference="metaModel:DeFi_Lending_Core" name="defi_lending_core" type="xsd:anyURI"/>
+    <xsd:attribute ecore:name="token_manager" ecore:reference="metaModel:Token_Manager" name="token_manager" type="xsd:anyURI"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="DeFi_Lending_Core" name="DeFi_Lending_Core">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="updateState"/>
+        <operation name="reservesState"/>
+        <operation name="lendingPoolConfigurator"/>
+        <operation name="transferToUser"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:attribute ecore:name="data_provider" ecore:opposite="defi_lending_core" ecore:reference="metaModel:Data_Provider" name="data_provider" type="xsd:anyURI"/>
+    <xsd:attribute ecore:name="reserves_manager" ecore:opposite="defi_lending_core" ecore:reference="metaModel:Reserves_Manager" name="reserves_manager" type="xsd:anyURI"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Data_Provider" name="Data_Provider">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="priceOracle"/>
+        <operation name="interestRate"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="metaModel:OracleClient">
+        <xsd:attribute ecore:name="defi_lending_core" ecore:opposite="data_provider" ecore:reference="metaModel:DeFi_Lending_Core" name="defi_lending_core" type="xsd:anyURI"/>
+        <xsd:attribute ecore:reference="metaModel:OracleClient" name="oracleclient" type="xsd:anyURI"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="DeFi_Lending_Pool" name="DeFi_Lending_Pool">
+    <xsd:sequence>
+      <xsd:element ecore:name="defi_lending_core" ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="defi_lending_core" type="metaModel:DeFi_Lending_Core"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="defi_user" ecore:opposite="defi_lending_pool" ecore:reference="metaModel:DeFi_User" name="defi_user">
+      <xsd:simpleType>
+        <xsd:list itemType="xsd:anyURI"/>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="lendingPoolAddress" type="metaModel:AddressDType"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="DeFi_User" name="DeFi_User">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="loan"/>
+        <operation name="deposit"/>
+        <operation name="borrow"/>
+        <operation name="repay"/>
+        <operation name="redeem"/>
+        <operation name="swap"/>
+        <operation name="recieve"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="metaModel:Contract">
+        <xsd:attribute ecore:name="defi_lending_pool" ecore:opposite="defi_user" ecore:reference="metaModel:DeFi_Lending_Pool" name="defi_lending_pool">
+          <xsd:simpleType>
+            <xsd:list itemType="xsd:anyURI"/>
+          </xsd:simpleType>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType ecore:instanceClass="java.lang.String" name="AddressDType">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+</xsd:schema>

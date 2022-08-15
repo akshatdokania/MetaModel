@@ -1,0 +1,7 @@
+public class Orders(){
+	var id;
+	var status;
+	var buyer;
+	var price;
+	items = new Items();
+}

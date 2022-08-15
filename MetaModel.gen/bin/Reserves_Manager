@@ -1,0 +1,9 @@
+public class Reserves_Manager(){
+	function activate(){}
+	function deactivate(){}
+	function freeze(){}
+	function update(){}
+	function unfreeze(){}
+	defi_lending_core = new Defi_lending_core();
+	token_manager = new Token_manager();
+}

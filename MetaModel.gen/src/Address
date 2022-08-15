@@ -1,0 +1,6 @@
+public class Address(){
+	var addr;
+	transaction = new Transaction();
+	contract = new Contract();
+	user = new User();
+}

@@ -1,0 +1,22 @@
+public class OracleClient(){
+	var registry;
+	var link;
+	var oracle;
+	var request;
+	var pendingRequests;
+	function encodeRequest(){}
+	function tokenAddress(){}
+	function buildRequest(){}
+	function sendRequest(){}
+	function cancelRequest(){}
+	function setOracle(){}
+	function setToken(){}
+	function addExternalRequest(){}
+	function updateOracle(){}
+	function validateCallback(){}
+	function recordRequestFulfilled(){}
+	oracleRef = new OracleRef();
+	requestRef = new RequestRef();
+	buffer = new Buffer();
+	cbor = new Cbor();
+}

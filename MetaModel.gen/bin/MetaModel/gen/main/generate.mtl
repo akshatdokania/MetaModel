@@ -1,0 +1,20 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.eclipse.org/emf/2002/Ecore')]
+
+
+[template public generateElement(anEClass : EClass)]
+[comment @main/]
+[file (anEClass.name, false, 'UTF-8')]
+public class [anEClass.name/](){
+[for (attr : EAttribute | anEClass.eAllContents())]
+	var [attr.name/];
+[/for]
+[for (method : EOperation | anEClass.eAllContents())]
+	function [method.name/](){}
+[/for]
+[for (ref : EReference | anEClass.eAllContents())]
+	[ref.name/] = new [ref.name.substring(1, 1).toUpperCase() + ref.name.substring(2)/]();
+[/for]
+}
+[/file]
+[/template]

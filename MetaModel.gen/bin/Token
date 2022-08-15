@@ -1,0 +1,10 @@
+public class Token(){
+	function Transfer(){}
+	function Approval(){}
+	function totalSupply(){}
+	function balanceOf(){}
+	function transferFrom(){}
+	function transferTo(){}
+	function approve(){}
+	function allowance(){}
+}

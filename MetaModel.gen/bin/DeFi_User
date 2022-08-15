@@ -1,0 +1,10 @@
+public class DeFi_User(){
+	function loan(){}
+	function deposit(){}
+	function borrow(){}
+	function repay(){}
+	function redeem(){}
+	function swap(){}
+	function recieve(){}
+	defi_lending_pool = new Defi_lending_pool();
+}

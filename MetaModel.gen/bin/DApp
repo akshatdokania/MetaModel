@@ -1,0 +1,3 @@
+public class DApp(){
+	contract = new Contract();
+}

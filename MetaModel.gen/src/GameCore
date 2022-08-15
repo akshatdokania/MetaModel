@@ -1,0 +1,11 @@
+public class GameCore(){
+	var newPlayerAddress;
+	var active_players;
+	function setNewAddress(){}
+	function getCollectible(){}
+	function withdraw(){}
+	function join(){}
+	function ping(){}
+	gameplayer_manager = new Gameplayer_manager();
+	gameminting = new Gameminting();
+}

@@ -1,0 +1,7 @@
+public class Token_Manager(){
+	var symbol;
+	var name;
+	var totalSupply;
+	var balances;
+	safemath = new Safemath();
+}

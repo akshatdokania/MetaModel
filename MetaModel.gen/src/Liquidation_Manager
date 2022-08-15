@@ -1,0 +1,7 @@
+public class Liquidation_Manager(){
+	function mint(){}
+	function bum(){}
+	function updateLiquidateFee(){}
+	liquidator = new Liquidator();
+	token_manager = new Token_manager();
+}

@@ -1,0 +1,7 @@
+public class Buffer_Manager(){
+	function resize(){}
+	function max(){}
+	function write(){}
+	function truncate(){}
+	function append(){}
+}

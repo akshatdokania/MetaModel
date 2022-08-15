@@ -1,0 +1,8 @@
+public class DeFi_Lending_Core(){
+	function updateState(){}
+	function reservesState(){}
+	function lendingPoolConfigurator(){}
+	function transferToUser(){}
+	data_provider = new Data_provider();
+	reserves_manager = new Reserves_manager();
+}

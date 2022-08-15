@@ -1,0 +1,16 @@
+public class Marketplace(){
+	var token;
+	var publicationFee;
+	var registry;
+	function createAuction(){}
+	function cancelAuction(){}
+	function changeOwner(){}
+	function setPublicationFee(){}
+	function createOrder(){}
+	function cancelOrder(){}
+	function executeOrder(){}
+	function setOwnerCut(){}
+	orders = new Orders();
+	auctions = new Auctions();
+	token_manager = new Token_manager();
+}

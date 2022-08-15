@@ -1,0 +1,17 @@
+public class Exchange(){
+	var selector;
+	var reserves;
+	var blockTimeStamp;
+	var minimumLiquiduty;
+	var factory;
+	var token;
+	function updateConversonRates(){}
+	function mintFee(){}
+	function mint(){}
+	function burn(){}
+	function swap(){}
+	function sync(){}
+	function initialize(){}
+	currency = new Currency();
+	token_manager = new Token_manager();
+}

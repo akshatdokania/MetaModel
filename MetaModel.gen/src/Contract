@@ -1,0 +1,4 @@
+public class Contract(){
+	address = new Address();
+	dapp = new Dapp();
+}
